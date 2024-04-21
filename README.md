@@ -21,9 +21,9 @@ Manage your AWS Organization
 <!-- FEATURES -->
 ## Features
 
-### Delegation
-
-
+- Will provision the AWS Organization Unit (OU) Structure based on a given HCL map.
+- Optionally assign existing SCPs to OUs.
+- Optionally assign tags to OUs.
 
 ### OU-Structure
 
@@ -37,6 +37,7 @@ locals {
       # Artificial Org Structure
       {
         name : "level1_unit1",
+        scp_ids = ["p-yxodpfe7"]
         level2_units : [
           {
             name : "level1_unit1__level2_unit1"
