@@ -73,6 +73,15 @@ locals {
     ]
   }
 }
+
+module "aws_organization_units" {
+  source = "../../"
+
+  organizational_units = local.organizational_units
+  providers = {
+    aws = aws.org_mgmt
+  }
+}
 ```
 
 <!-- BEGIN_TF_DOCS -->
