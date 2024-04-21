@@ -50,11 +50,21 @@ data "aws_iam_policy_document" "org_structure_policy" {
     actions = [
       "organizations:DescribeOrganization",
       "organizations:ListRoots",
+      "organizations:ListParents",
       "organizations:ListOrganizationalUnitsForParent",
+      "organizations:ListAccounts",
+      "organizations:ListAccountsForParent",
+      "organizations:ListAWSServiceAccessForOrganization",
       "organizations:DescribeOrganizationalUnit",
       "organizations:CreateOrganizationalUnit",
       "organizations:UpdateOrganizationalUnit",
       "organizations:DeleteOrganizationalUnit",
+      "organizations:AttachPolicy",
+      "organizations:DetachPolicy",
+      "organizations:DescribePolicy",
+      "organizations:ListTargetsForPolicy",
+      "organizations:ListTagsForResource",
+      "organizations:TagResource",
     ]
     resources = ["*"]
   }

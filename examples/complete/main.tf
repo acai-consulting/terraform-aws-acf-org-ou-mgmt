@@ -37,11 +37,8 @@ provider "aws" {
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
-# ¦ DATA
+# ¦ TEST SCP
 # ---------------------------------------------------------------------------------------------------------------------
-data "aws_caller_identity" "current" {}
-data "aws_region" "current" {}
-
 resource "aws_organizations_policy" "scp_example" {
   name = "test_scp"
   type = "SERVICE_CONTROL_POLICY"
@@ -162,6 +159,9 @@ module "example_complete" {
   source = "../../"
 
   organizational_units = local.organizational_units
+  depends_on = [
+    aws_organizations_policy.scp_example
+  ]
   providers = {
     aws = aws.cicd_provisioner
   }
