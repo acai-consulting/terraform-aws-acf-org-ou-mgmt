@@ -25,6 +25,12 @@ data "aws_organizations_organization" "organization" {}
 # ---------------------------------------------------------------------------------------------------------------------
 locals {
   root_ou_id = data.aws_organizations_organization.organization.roots[0].id
+  module_tags = {
+    "module_provider" = "ACAI GmbH",
+    "module_name"     = "terraform-aws-acf-org-ou-mgmt",
+    "module_source"   = "github.com/acai-consulting/terraform-aws-acf-org-ou-mgmt",
+    "module_version"  = /*inject_version_start*/ "1.0.4" /*inject_version_end*/
+  }
 
   level_1_ou_transformed = [
     for level_1_ou in var.organizational_units.level1_units :
@@ -33,7 +39,7 @@ locals {
       path : "root/${level_1_ou.name}"
       name : level_1_ou.name
       scp_ids : level_1_ou.scp_ids
-      tags : level_1_ou.tags
+      tags : merge(level_1_ou.tags, local.module_tags)
       level2_units : level_1_ou.level2_units
     }
   ]
@@ -87,7 +93,7 @@ locals {
         path : "${level_1_ou.path}/${level_2_ou.name}"
         name : level_2_ou.name
         scp_ids : level_2_ou.scp_ids
-        tags : level_2_ou.tags
+        tags : merge(level_2_ou.tags, local.module_tags)
         level3_units : level_2_ou.level3_units
       }
     ]
@@ -141,7 +147,7 @@ locals {
         path : "${level_2_ou.path}/${level_3_ou.name}"
         name : level_3_ou.name
         scp_ids : level_3_ou.scp_ids
-        tags : level_3_ou.tags
+        tags : merge(level_3_ou.tags, local.module_tags)
         level4_units : level_3_ou.level4_units
       }
     ]
@@ -196,7 +202,7 @@ locals {
         path : "${level_3_ou.path}/${level_4_ou.name}"
         name : level_4_ou.name
         scp_ids : level_4_ou.scp_ids
-        tags : level_4_ou.tags
+        tags : merge(level_4_ou.tags, local.module_tags)
         level5_units : level_4_ou.level5_units
       }
     ]
@@ -251,7 +257,7 @@ locals {
         path : "${level_4_ou.path}/${level_5_ou.name}"
         name : level_5_ou.name
         scp_ids : level_5_ou.scp_ids
-        tags : level_5_ou.tags
+        tags : merge(level_5_ou.tags, local.module_tags)
       }
     ]
   ])
