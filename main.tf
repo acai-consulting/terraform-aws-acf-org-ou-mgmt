@@ -36,7 +36,7 @@ locals {
     for level_1_ou in var.organizational_units.level1_units :
     {
       parent_id : local.root_ou_id
-      path : "root/${level_1_ou.name}"
+      path : "/root/${level_1_ou.name}"
       name : level_1_ou.name
       scp_ids : level_1_ou.scp_ids
       tags : merge(level_1_ou.tags, local.module_tags)

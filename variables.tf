@@ -2,7 +2,7 @@
 # ¦ OU-Names are case-sensitive!!!
 # ---------------------------------------------------------------------------------------------------------------------
 variable "organizational_units" {
-  description = "The organization with the tree of organizational units and their tags."
+  description = "The organization with the tree of organizational units and their tags. OU-Names are case-sensitive!!!"
   type = object({
     level1_units = optional(list(object({
       name    = string,
