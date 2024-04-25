@@ -47,6 +47,10 @@ func TestExampleComplete(t *testing.T) {
 		TerraformDir: terraformDir,
 		NoColor:      false,
 		Lock:         true,
+		Targets: []string{
+			"module.example_complete",
+			"module.example_reporting",
+		},
 	}
 	terraform.InitAndApply(t, terraformModule)
 
