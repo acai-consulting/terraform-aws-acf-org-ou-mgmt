@@ -170,6 +170,9 @@ module "example_complete" {
 module "example_reporting" {
   source = "../../reporting"
 
+  depends_on = [
+    module.example_complete
+  ]
   providers = {
     aws = aws.cicd_provisioner
   }
