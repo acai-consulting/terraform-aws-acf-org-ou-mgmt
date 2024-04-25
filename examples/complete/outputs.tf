@@ -12,3 +12,13 @@ output "test_success2" {
   description = "Check if specific OU-Path exists."
   value       = lookup(module.example_complete.organizational_units_paths_ids, "/root/WorkloadAccounts/BusinessUnit_1/Prod", null) != null
 }
+
+output "example_reporting" {
+  description = "example_reporting"
+  value       = module.example_reporting
+}
+
+output "test_success3" {
+  description = "Check if specific OU-Path exists."
+  value       = contains(keys(module.example_reporting.ous_paths), "/root/WorkloadAccounts/BusinessUnit_1/Prod")
+}
