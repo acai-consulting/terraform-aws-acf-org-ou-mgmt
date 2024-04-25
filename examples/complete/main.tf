@@ -166,3 +166,11 @@ module "example_complete" {
     aws = aws.cicd_provisioner
   }
 }
+
+module "example_reporting" {
+  source = "../../reporting"
+
+  providers = {
+    aws = aws.cicd_provisioner
+  }
+}
