@@ -5,10 +5,10 @@ output "example_complete" {
 
 output "test_success1" {
   description = "Check if specific OU-Path exists."
-  value       = module.example_complete.level_3_ous_details["root/level1_unit1/level1_unit1__level2_unit2/level1_unit1__level2_unit2__level3_unit1"].name == "level1_unit1__level2_unit2__level3_unit1"
+  value       = module.example_complete.level_3_ous_details["/root/level1_unit1/level1_unit1__level2_unit2/level1_unit1__level2_unit2__level3_unit1"].name == "level1_unit1__level2_unit2__level3_unit1"
 }
 
 output "test_success2" {
   description = "Check if specific OU-Path exists."
-  value       = lookup(module.example_complete.organizational_units_paths_ids, "root/WorkloadAccounts/BusinessUnit_1/Prod", null) != null
+  value       = lookup(module.example_complete.organizational_units_paths_ids, "/root/WorkloadAccounts/BusinessUnit_1/Prod", null) != null
 }
