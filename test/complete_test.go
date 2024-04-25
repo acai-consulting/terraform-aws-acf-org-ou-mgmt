@@ -76,8 +76,8 @@ func TestExampleComplete(t *testing.T) {
 	assert.Equal(t, "true", testSuccess2Output, "The test_success2 output is not true")
 	assert.Equal(t, "true", testSuccess3Output, "The test_success3 output is not true")
 
-	terraform.Destroy(t, terraformModule)
 	terraform.Destroy(t, terraformReport)
+	terraform.Destroy(t, terraformModule)
 
 	terraform.Destroy(t, terraformPreparation)
 }
