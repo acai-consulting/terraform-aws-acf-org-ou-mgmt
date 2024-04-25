@@ -49,15 +49,24 @@ func TestExampleComplete(t *testing.T) {
 		Lock:         true,
 		Targets: []string{
 			"module.example_complete",
-			"module.example_reporting",
 		},
 	}
 	terraform.InitAndApply(t, terraformModule)
 
+	terraformReport := &terraform.Options{
+		TerraformDir: terraformDir,
+		NoColor:      false,
+		Lock:         true,
+		Targets: []string{
+			"module.example_reporting",
+		},
+	}
+	terraform.InitAndApply(t, terraformReport)
+
 	// Retrieve the 'test_success' outputs
 	testSuccess1Output := terraform.Output(t, terraformModule, "test_success1")
 	testSuccess2Output := terraform.Output(t, terraformModule, "test_success2")
-	testSuccess3Output := terraform.Output(t, terraformModule, "test_success3")
+	testSuccess3Output := terraform.Output(t, terraformReport, "test_success3")
 	t.Logf("testSuccess1Output: %s", testSuccess1Output)
 	t.Logf("testSuccess2Output: %s", testSuccess2Output)
 	t.Logf("testSuccess3Output: %s", testSuccess3Output)
@@ -68,6 +77,7 @@ func TestExampleComplete(t *testing.T) {
 	assert.Equal(t, "true", testSuccess3Output, "The test_success3 output is not true")
 
 	terraform.Destroy(t, terraformModule)
+	terraform.Destroy(t, terraformReport)
 
 	terraform.Destroy(t, terraformPreparation)
 }
