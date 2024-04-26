@@ -1,4 +1,4 @@
-# terraform-aws-acf-ou-mgmt Terraform module
+# terraform-aws-acf-org-ou-mgmt Terraform module
 
 <!-- LOGO -->
 <a href="https://acai.gmbh">    
@@ -157,8 +157,8 @@ See [LICENSE][license-url] for full details.
 [terraform-version-shield]: https://img.shields.io/badge/tf-%3E%3D1.3.10-blue.svg?style=flat&color=blueviolet
 [trivy-shield]: https://img.shields.io/badge/trivy-passed-green
 [checkov-shield]: https://img.shields.io/badge/checkov-passed-green
-[release-shield]: https://img.shields.io/github/v/release/acai-consulting/terraform-aws-acf-ou-mgmt?style=flat&color=success
-[release-url]: https://github.com/acai-consulting/terraform-aws-acf-ou-mgmt/releases
-[license-url]: https://github.com/acai-consulting/terraform-aws-acf-ou-mgmt/tree/main/LICENSE.md
+[release-shield]: https://img.shields.io/github/v/release/acai-consulting/terraform-aws-acf-org-ou-mgmt?style=flat&color=success
+[release-url]: https://github.com/acai-consulting/terraform-aws-acf-org-ou-mgmt/releases
+[license-url]: https://github.com/acai-consulting/terraform-aws-acf-org-ou-mgmt/tree/main/LICENSE.md
 [terraform-url]: https://www.terraform.io
 [aws-url]: https://aws.amazon.com
