@@ -14,9 +14,8 @@
 [![Latest Release][release-shield]][release-url]
 
 <!-- DESCRIPTION -->
-Manage your AWS Organization
 
-[Terraform][terraform-url] module to deploy REPLACE_ME resources on [AWS][aws-url]
+[Terraform][terraform-url] module to deploy the AWS Organization Unit hierarchy
 
 <!-- FEATURES -->
 ## Features
