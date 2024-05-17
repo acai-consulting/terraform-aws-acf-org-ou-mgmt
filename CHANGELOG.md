@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.1](https://github.com/acai-consulting/terraform-aws-acf-org-ou-mgmt/compare/1.1.0...1.1.1) (2024-05-17)
+
+
+### Bug Fixes
+
+* updated license ([#5](https://github.com/acai-consulting/terraform-aws-acf-org-ou-mgmt/issues/5)) ([af91000](https://github.com/acai-consulting/terraform-aws-acf-org-ou-mgmt/commit/af91000a626a0d91e59da7c67ff7c45e6d192d70))
+
 ## [1.1.0](https://github.com/acai-consulting/terraform-aws-acf-org-ou-mgmt/compare/1.0.2...1.1.0) (2024-04-25)
 
 
