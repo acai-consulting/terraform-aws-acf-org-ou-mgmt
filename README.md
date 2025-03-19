@@ -13,20 +13,22 @@
 ![checkov-shield]
 [![Latest Release][release-shield]][release-url]
 
-<!-- DESCRIPTION -->
-
+<!-- BEGIN_ACAI_DOCS -->
 [Terraform][terraform-url] module to deploy the AWS Organization Unit hierarchy
 
-<!-- FEATURES -->
-## Features
+This module is designed to:
 
-- Will provision the AWS Organization Unit (OU) Structure based on a given HCL map.
+- Provision the AWS Organization Unit (OU) Structure based on a given HCL map.
 - Optionally assign existing SCPs to OUs.
 - Optionally assign tags to OUs.
+
+![architecture]
 
 ### OU-Structure
 
 Will provision the AWS Organization Unit (OU) structure based on a given HCL map.
+
+Define OU-Structure:
 
 ``` hcl
 locals {
@@ -72,9 +74,14 @@ locals {
     ]
   }
 }
+```
 
+Provide the above specifications to the ACF Module:
+
+```hcl
 module "aws_organization_units" {
-  source = "../../"
+  source  = "app.terraform.io/acai-consulting/org-ou-mgmt/aws"
+  version = "~> 1.0"
 
   organizational_units = local.organizational_units
   providers = {
@@ -82,6 +89,7 @@ module "aws_organization_units" {
   }
 }
 ```
+<!-- END_ACAI_DOCS -->
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -161,3 +169,4 @@ See [LICENSE][license-url] for full details.
 [license-url]: https://github.com/acai-consulting/terraform-aws-acf-org-ou-mgmt/tree/main/LICENSE.md
 [terraform-url]: https://www.terraform.io
 [aws-url]: https://aws.amazon.com
+[architecture]: ./docs/terraform-aws-acf-org-ou-mgmt.png
